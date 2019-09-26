@@ -1,4 +1,5 @@
-#nginx servers with environment variables
+# nginx servers 
+## with environment variables
 With this docker-compose.yml, you can up 3 environments (dev, qa, prd).
 
 Previously, you must set 6 environment variables:
