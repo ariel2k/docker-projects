@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+ webserver_dev:
+  image: nginx
+  ports:
+   - $webserverPortDev:80
+  volumes:
+   - $webserverPathDev:/usr/share/nginx/html
+  restart: always
+ 
+ webserver_qa:
+  image: nginx
+  ports:
+   - $webserverPortQa:80
+  volumes:
+   - $webserverPathQa:/usr/share/nginx/html
+  restart: always
+
+ webserver_prd:
+  image: nginx
+  ports:
+   - $webserverPortPrd:80
+  volumes:
+   - $webserverPathPrd:/usr/share/nginx/html
+  restart: always
+
