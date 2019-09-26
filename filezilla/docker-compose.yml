@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+ ftp_nginx:
+  image: jlesage/filezilla
+  ports: 
+   - $ftpserverPortDev:5800
+  volumes:
+   - $ftpserverPath:/storage
+  restart: always
