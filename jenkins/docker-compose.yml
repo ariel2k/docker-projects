@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+ jenkins: 
+  image: jenkins
+  ports:
+   - $jenkinsWebPort:8080
+   - $jenkinsWebPort2:5000
+  volumes:
+   - $jenkinsHome:/var/jenkins_home
+  restart: always
