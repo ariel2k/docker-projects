@@ -2,7 +2,7 @@ version: '3'
 
 services:
  jenkins: 
-  image: jenkins
+  image: jenkins/jenkins
   ports:
    - $jenkinsWebPort:8080
    - $jenkinsWebPort2:5000
