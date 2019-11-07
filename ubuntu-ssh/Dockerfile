@@ -1,8 +1,8 @@
-FROM ubuntu:16.04
+FROM debian
 
 RUN apt-get update && apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
-RUN echo 'root:P@ssw0rD' | chpasswd
+RUN echo 'root:ppaass' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 
 # SSH login fix. Otherwise user is kicked off after login
@@ -10,6 +10,9 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
+
+RUN useradd -ms /bin/bash equifax
+RUN echo "equifax:test" | chpasswd
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]

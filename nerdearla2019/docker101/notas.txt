@@ -1,0 +1,28 @@
+Dockerfile
+
+# Base de nuestro dockerfile
+FROM node:11
+
+# Corremos un comando de la terminal, para instalar y configurar
+RUN npm install -g pm2 --silent
+
+# Comando para correr a penas inicia el contenedor
+CMD ["node","server.js"]
+
+# Puerto que escuchar el contenedor
+EXPOSE 3000
+
+# A partir que carpeta vas a trabajar
+WORKDIR /usr/src/app
+
+# Copiamos archivos desde nuestra pc al contenedor
+COPY test.txt .
+
+# creamos variables de ambiente
+ENV NODE_EV production
+
+
+
+
+
+
